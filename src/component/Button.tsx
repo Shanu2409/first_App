@@ -2,17 +2,13 @@ import { useState } from "react";
 
 interface Prop {
   children: string;
-  onC: (text: string) => void;
+  onC: () => void;
+  color?: "primary" | "secondary" | "danger"; // only specified vales are accepeted
 }
 
-const Button = ({ children, onC }: Prop) => {
+const Button = ({ children, onC, color = "primary" }: Prop) => {
   return (
-    <div
-      className={"btn btn-outline-" + children}
-      onClick={() => {
-        onC(children);
-      }}
-    >
+    <div className={"btn btn-outline-" + color} onClick={onC}>
       {children}
     </div>
   );
